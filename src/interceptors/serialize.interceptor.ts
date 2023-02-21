@@ -28,8 +28,4 @@ export class SerializeInterceptor implements NestInterceptor {
         );
     }
 
-    getClass<T extends new (...args: any[]) => any>(obj: T): T {
-        return obj;
-    }
-
 }
