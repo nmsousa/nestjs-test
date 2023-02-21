@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, AfterInsert, AfterUpdate, AfterRemove } from "typeorm";
+import { AfterInsert, AfterRemove, AfterUpdate, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class User {
@@ -9,6 +9,9 @@ export class User {
   email: string;
 
   @Column()
+  // Whenever we transform an instance of User into plain object
+  // and then JSON, this property will be excluded
+    // @Exclude() (we will create our own interceptor, unlike NestJS recommends)
   password: string;
 
   // Hooks
